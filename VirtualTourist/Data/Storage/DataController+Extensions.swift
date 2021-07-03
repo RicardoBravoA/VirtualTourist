@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 extension DataController {
+    
     func fetchLastLocation(_ predicate: NSPredicate, sorting: NSSortDescriptor? = nil) throws -> Pin? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
         fetchRequest.predicate = predicate

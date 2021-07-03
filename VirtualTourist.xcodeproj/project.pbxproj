@@ -20,6 +20,8 @@
 		C68D91A2268FFB9E00FB9741 /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C68D91A0268FFB9E00FB9741 /* VirtualTourist.xcdatamodeld */; };
 		C68D91A7269006BA00FB9741 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91A6269006BA00FB9741 /* DataController.swift */; };
 		C68D91A92690082D00FB9741 /* DataController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91A82690082D00FB9741 /* DataController+Extensions.swift */; };
+		C68D91AC2690089800FB9741 /* Pin+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91AB2690089800FB9741 /* Pin+Extension.swift */; };
+		C68D91AE269008CF00FB9741 /* Photo+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91AD269008CF00FB9741 /* Photo+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		C68D91A1268FFB9E00FB9741 /* VirtualTourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualTourist.xcdatamodel; sourceTree = "<group>"; };
 		C68D91A6269006BA00FB9741 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		C68D91A82690082D00FB9741 /* DataController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController+Extensions.swift"; sourceTree = "<group>"; };
+		C68D91AB2690089800FB9741 /* Pin+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+Extension.swift"; sourceTree = "<group>"; };
+		C68D91AD269008CF00FB9741 /* Photo+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,11 +133,21 @@
 		C68D919F268FFB7500FB9741 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				C68D91AA2690088600FB9741 /* Managed Object Extension */,
 				C68D91A0268FFB9E00FB9741 /* VirtualTourist.xcdatamodeld */,
 				C68D91A6269006BA00FB9741 /* DataController.swift */,
 				C68D91A82690082D00FB9741 /* DataController+Extensions.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		C68D91AA2690088600FB9741 /* Managed Object Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C68D91AB2690089800FB9741 /* Pin+Extension.swift */,
+				C68D91AD269008CF00FB9741 /* Photo+Extension.swift */,
+			);
+			path = "Managed Object Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +222,7 @@
 			files = (
 				C68D9183268FE7BC00FB9741 /* MapViewController.swift in Sources */,
 				C68D91A92690082D00FB9741 /* DataController+Extensions.swift in Sources */,
+				C68D91AE269008CF00FB9741 /* Photo+Extension.swift in Sources */,
 				C68D917F268FE7BC00FB9741 /* AppDelegate.swift in Sources */,
 				C68D919D268FF3DC00FB9741 /* PhotoResponse.swift in Sources */,
 				C68D9195268FF15C00FB9741 /* EndPoint.swift in Sources */,
@@ -216,6 +231,7 @@
 				C68D919B268FF30800FB9741 /* ErrorResponse.swift in Sources */,
 				C68D9181268FE7BC00FB9741 /* SceneDelegate.swift in Sources */,
 				C68D9197268FF28100FB9741 /* ApiClient.swift in Sources */,
+				C68D91AC2690089800FB9741 /* Pin+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
