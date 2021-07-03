@@ -20,7 +20,15 @@ class PhotoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigation.title = pin.pin.name
+        
         setUpMap()
+        
+        ApiClient.searchPhotos(latitude: pin.pin.latitude, longitude: pin.pin.longitude) { response, error in
+            print(response)
+            print(error)
+        }
     }
     
     @IBAction func deletePhoto(_ sender: UIBarButtonItem) {

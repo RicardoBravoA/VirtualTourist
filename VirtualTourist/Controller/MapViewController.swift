@@ -94,7 +94,6 @@ class MapViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "photoSegue" {
-            print("photoSegue")
             guard let navigationController = segue.destination as? UINavigationController else {
                 return
             }
