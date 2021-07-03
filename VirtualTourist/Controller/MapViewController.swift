@@ -31,8 +31,14 @@ class MapViewController: UIViewController {
     }
 
     @IBAction func longPressOnMap(_ sender: UILongPressGestureRecognizer) {
-        let coordinate = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
-        savePoint(coordinate: coordinate)
+        if sender.state == .began {
+            print("Inicio")
+        }
+        if sender.state == .ended {
+            print("Fin")
+            let coordinate = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
+            savePoint(coordinate: coordinate)
+        }
     }
     
     func loadData() {
@@ -102,6 +108,7 @@ extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelega
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
             pinView!.pinTintColor = .red
+            pinView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         } else {
             pinView!.annotation = annotation
         }
@@ -117,6 +124,12 @@ extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelega
             "longitudeDelta" : mapView.region.span.longitudeDelta
         ]
         UserDefaults.standard.set(mapRegion, forKey: lastLocation)
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            print("Pin rightCalloutAccessoryView")
+        }
     }
     
 }
