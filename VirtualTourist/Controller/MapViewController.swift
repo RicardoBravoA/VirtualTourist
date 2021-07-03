@@ -93,11 +93,19 @@ class MapViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let photoViewController = segue.destination as? PhotoViewController else { return }
-        let pin: CustomPointAnnotation = sender as! CustomPointAnnotation
-        photoViewController.pin = pin
-    }
-    
+        if segue.identifier == "photoSegue" {
+            print("photoSegue")
+            guard let navigationController = segue.destination as? UINavigationController else {
+                return
+            }
+            
+            guard let photoViewController = navigationController.topViewController as? PhotoViewController else {
+                return
+            }
+            let pin: CustomPointAnnotation = sender as! CustomPointAnnotation
+            photoViewController.pin = pin
+            }
+        }    
 }
 
 extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelegate {

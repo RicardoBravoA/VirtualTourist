@@ -18,9 +18,9 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("Pin \(pin)")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpMap()
     }
     
     @IBAction func deletePhoto(_ sender: UIBarButtonItem) {
