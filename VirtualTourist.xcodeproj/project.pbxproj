@@ -16,6 +16,7 @@
 		C68D9195268FF15C00FB9741 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D9194268FF15C00FB9741 /* EndPoint.swift */; };
 		C68D9197268FF28100FB9741 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D9196268FF28100FB9741 /* ApiClient.swift */; };
 		C68D919B268FF30800FB9741 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D919A268FF30800FB9741 /* ErrorResponse.swift */; };
+		C68D919D268FF3DC00FB9741 /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D919C268FF3DC00FB9741 /* PhotoResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C68D9194268FF15C00FB9741 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		C68D9196268FF28100FB9741 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		C68D919A268FF30800FB9741 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		C68D919C268FF3DC00FB9741 /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				C68D919A268FF30800FB9741 /* ErrorResponse.swift */,
+				C68D919C268FF3DC00FB9741 /* PhotoResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			files = (
 				C68D9183268FE7BC00FB9741 /* ViewController.swift in Sources */,
 				C68D917F268FE7BC00FB9741 /* AppDelegate.swift in Sources */,
+				C68D919D268FF3DC00FB9741 /* PhotoResponse.swift in Sources */,
 				C68D9195268FF15C00FB9741 /* EndPoint.swift in Sources */,
 				C68D919B268FF30800FB9741 /* ErrorResponse.swift in Sources */,
 				C68D9181268FE7BC00FB9741 /* SceneDelegate.swift in Sources */,
