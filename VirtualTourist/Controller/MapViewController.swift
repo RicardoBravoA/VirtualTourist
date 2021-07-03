@@ -74,4 +74,22 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelegate {
  
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+    
+        let pinAnnotation = annotation as! CustomPointAnnotation
+        pinAnnotation.title = pinAnnotation.pin.name
+   
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = .red
+        } else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
+    }
+    
 }
