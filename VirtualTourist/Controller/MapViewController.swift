@@ -7,16 +7,71 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    var dataController: DataController! {
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        return appDelegate.dataController
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
     }
 
+    @IBAction func longPressOnMap(_ sender: UILongPressGestureRecognizer) {
+        let coordinate = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
+        savePoint(coordinate: coordinate)
+    }
+    
+    func loadData() {
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        
+        guard let data = try? dataController.fetchLocations() else { return }
+        var annotations = [MKPointAnnotation]()
+        
+        for pin in data {
+            let annotation = CustomPointAnnotation(pin: pin)
+            annotations.append(annotation)
+        }
+        
+        DispatchQueue.main.async {
+            self.mapView.addAnnotations(annotations)
+            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+        }
 
+    }
+    
+    private func savePoint(coordinate: CLLocationCoordinate2D) {
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let annotation = MKPointAnnotation()
+        
+        CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
+            guard let placemark = placemarks?.first else { return }
+            annotation.title = placemark.name ?? "Ubication not found"
+            annotation.coordinate = coordinate
+            
+            let pin = Pin(context: self.dataController.viewContext)
+            pin.longitude = annotation.coordinate.longitude
+            pin.latitude = annotation.coordinate.latitude
+            pin.name = annotation.title
+            
+            self.dataController.save()
+            let pointAnnotation = CustomPointAnnotation(pin: pin)
+            
+            DispatchQueue.main.async {
+                self.mapView.addAnnotation(pointAnnotation)
+            }
+        }
+    }
+    
 }
 
+extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelegate {
+ 
+}

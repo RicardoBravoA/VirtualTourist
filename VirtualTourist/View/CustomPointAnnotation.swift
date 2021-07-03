@@ -8,14 +8,16 @@
 import Foundation
 import MapKit
 
-class PointAnnotation: MKPointAnnotation {
+class CustomPointAnnotation: MKPointAnnotation {
     
-    var pin: PinMKPointAnnotation
+    var pin: Pin
     
     init(pin: Pin) {
+        
         self.pin = pin
         super.init()
         self.coordinate = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longitude)
+        self.title = pin.name
     }
     
 }
