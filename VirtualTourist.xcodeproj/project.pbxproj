@@ -15,6 +15,7 @@
 		C68D918B268FE7BF00FB9741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C68D9189268FE7BF00FB9741 /* LaunchScreen.storyboard */; };
 		C68D9195268FF15C00FB9741 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D9194268FF15C00FB9741 /* EndPoint.swift */; };
 		C68D9197268FF28100FB9741 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D9196268FF28100FB9741 /* ApiClient.swift */; };
+		C68D919B268FF30800FB9741 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D919A268FF30800FB9741 /* ErrorResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C68D918C268FE7BF00FB9741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C68D9194268FF15C00FB9741 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		C68D9196268FF28100FB9741 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		C68D919A268FF30800FB9741 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		C68D9192268FF14800FB9741 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C68D9198268FF2F800FB9741 /* Model */,
 				C68D9193268FF14D00FB9741 /* Api */,
 			);
 			path = Data;
@@ -87,6 +90,22 @@
 				C68D9196268FF28100FB9741 /* ApiClient.swift */,
 			);
 			path = Api;
+			sourceTree = "<group>";
+		};
+		C68D9198268FF2F800FB9741 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C68D9199268FF2FD00FB9741 /* Response */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C68D9199268FF2FD00FB9741 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				C68D919A268FF30800FB9741 /* ErrorResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +181,7 @@
 				C68D9183268FE7BC00FB9741 /* ViewController.swift in Sources */,
 				C68D917F268FE7BC00FB9741 /* AppDelegate.swift in Sources */,
 				C68D9195268FF15C00FB9741 /* EndPoint.swift in Sources */,
+				C68D919B268FF30800FB9741 /* ErrorResponse.swift in Sources */,
 				C68D9181268FE7BC00FB9741 /* SceneDelegate.swift in Sources */,
 				C68D9197268FF28100FB9741 /* ApiClient.swift in Sources */,
 			);
