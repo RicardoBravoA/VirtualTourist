@@ -77,7 +77,7 @@
                                     <outlet property="delegate" destination="s3G-3Q-lze" id="Kcd-bc-KfG"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2H-63-dLs">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2H-63-dLs" customClass="RectangleButton" customModule="VirtualTourist" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="768" width="414" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="SbO-fR-FDz"/>

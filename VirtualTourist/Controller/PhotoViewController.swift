@@ -72,9 +72,14 @@ class PhotoViewController: UIViewController {
         
         setUpMap()
         
+        self.activityIndicator.startAnimating()
+        
         ApiClient.searchPhotos(latitude: pin.pin.latitude, longitude: pin.pin.longitude) { response, error in
             self.data = response
             self.collectionView.reloadData()
+            
+            self.activityIndicator.stopAnimating()
+            self.newCollectionButton.isEnabled = true
         }
     }
     
