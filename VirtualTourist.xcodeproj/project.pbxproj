@@ -22,6 +22,7 @@
 		C68D91A92690082D00FB9741 /* DataController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91A82690082D00FB9741 /* DataController+Extensions.swift */; };
 		C68D91AC2690089800FB9741 /* Pin+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91AB2690089800FB9741 /* Pin+Extension.swift */; };
 		C68D91AE269008CF00FB9741 /* Photo+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91AD269008CF00FB9741 /* Photo+Extension.swift */; };
+		C68D91B126900C1300FB9741 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B026900C1300FB9741 /* CustomPointAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		C68D91A82690082D00FB9741 /* DataController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController+Extensions.swift"; sourceTree = "<group>"; };
 		C68D91AB2690089800FB9741 /* Pin+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+Extension.swift"; sourceTree = "<group>"; };
 		C68D91AD269008CF00FB9741 /* Photo+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Extension.swift"; sourceTree = "<group>"; };
+		C68D91B026900C1300FB9741 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,13 +76,13 @@
 		C68D917D268FE7BC00FB9741 /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
+				C68D91B226900CC400FB9741 /* Storyboard */,
+				C68D91AF26900BFC00FB9741 /* View */,
 				C68D919E268FF96D00FB9741 /* Controller */,
 				C68D9192268FF14800FB9741 /* Data */,
 				C68D917E268FE7BC00FB9741 /* AppDelegate.swift */,
 				C68D9180268FE7BC00FB9741 /* SceneDelegate.swift */,
-				C68D9184268FE7BC00FB9741 /* Main.storyboard */,
 				C68D9187268FE7BF00FB9741 /* Assets.xcassets */,
-				C68D9189268FE7BF00FB9741 /* LaunchScreen.storyboard */,
 				C68D918C268FE7BF00FB9741 /* Info.plist */,
 			);
 			path = VirtualTourist;
@@ -148,6 +150,23 @@
 				C68D91AD269008CF00FB9741 /* Photo+Extension.swift */,
 			);
 			path = "Managed Object Extension";
+			sourceTree = "<group>";
+		};
+		C68D91AF26900BFC00FB9741 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C68D91B026900C1300FB9741 /* CustomPointAnnotation.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C68D91B226900CC400FB9741 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C68D9189268FE7BF00FB9741 /* LaunchScreen.storyboard */,
+				C68D9184268FE7BC00FB9741 /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +245,7 @@
 				C68D917F268FE7BC00FB9741 /* AppDelegate.swift in Sources */,
 				C68D919D268FF3DC00FB9741 /* PhotoResponse.swift in Sources */,
 				C68D9195268FF15C00FB9741 /* EndPoint.swift in Sources */,
+				C68D91B126900C1300FB9741 /* CustomPointAnnotation.swift in Sources */,
 				C68D91A7269006BA00FB9741 /* DataController.swift in Sources */,
 				C68D91A2268FFB9E00FB9741 /* VirtualTourist.xcdatamodeld in Sources */,
 				C68D919B268FF30800FB9741 /* ErrorResponse.swift in Sources */,
