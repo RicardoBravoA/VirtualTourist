@@ -26,15 +26,15 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let space:CGFloat = 5.0
-//        let dimension = (view.frame.size.width - (2 * space)) / 3.0
-//        flowLayout.minimumInteritemSpacing = space
-//        flowLayout.minimumLineSpacing = space
-//        let size = CGSize(width: dimension, height: dimension)
-//        flowLayout.itemSize = size
-//        return size
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let space:CGFloat = 5.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        let size = CGSize(width: dimension, height: dimension)
+        flowLayout.itemSize = size
+        return size
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch mode {

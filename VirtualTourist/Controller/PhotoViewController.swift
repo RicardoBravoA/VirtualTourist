@@ -19,6 +19,7 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     var dictionarySelectedIndexPath: [IndexPath: Bool] = [:]
+    @IBOutlet weak var noImagesLabel: UILabel!
     
     var data = [PhotoItemResponse]()
     
@@ -71,11 +72,7 @@ class PhotoViewController: UIViewController {
         navigation.title = pin.pin.name
         
         setUpMap()
-        
-        ApiClient.searchPhotos(latitude: pin.pin.latitude, longitude: pin.pin.longitude) { response, error in
-            self.data = response
-            self.collectionView.reloadData()
-        }
+        loadPhotos()
     }
     
     @objc func didSelectButtonClicked(_ sender: UIBarButtonItem) {
@@ -98,4 +95,34 @@ class PhotoViewController: UIViewController {
         dictionarySelectedIndexPath.removeAll()
       }
     
+    @IBAction func loadPhotos(_ sender: UIButton) {
+        loadPhotos()
+    }
+    
+    private func loadPhotos(){
+        activityIndicator.startAnimating()
+        buttonEnabled(false, button: newCollectionButton)
+        
+        if !data.isEmpty {
+            data = []
+            collectionView.reloadData()
+        }
+        
+        ApiClient.searchPhotos(latitude: pin.pin.latitude, longitude: pin.pin.longitude) { response, error in
+            if error != nil {
+                self.showAlertController(message: error?.localizedDescription ?? "Error")
+            } else {
+                if response.isEmpty {
+                    self.noImagesLabel.isHidden = false
+                } else {
+                    self.noImagesLabel.isHidden = true
+                    self.data = response
+                    self.collectionView.reloadData()
+                }
+            }
+            
+            self.activityIndicator.stopAnimating()
+            self.buttonEnabled(true, button: self.newCollectionButton)
+        }
+    }
 }
