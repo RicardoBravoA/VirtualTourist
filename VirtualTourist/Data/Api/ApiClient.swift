@@ -9,6 +9,16 @@ import Foundation
 
 class ApiClient {
     
+    class func searchPhotos(latitude: Double, longitude: Double, completion: @escaping ([PhotoItemResponse], Error?) -> Void) {
+        taskForGETRequest(url: EndPoint.photoSearch(latitude, longitude).url, response: PhotoResponse.self) { response, error in
+            if let response = response {
+                completion(response.photo, nil)
+            } else {
+                completion([], error)
+            }
+        }
+    }
+    
     class func taskForGETRequest<ResponseType: Decodable>(url: URL, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
