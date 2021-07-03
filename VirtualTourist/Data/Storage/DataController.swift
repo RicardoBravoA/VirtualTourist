@@ -37,7 +37,7 @@ class DataController {
         }
     }
     
-    func save() throws {
+    func save() {
         if viewContext.hasChanges {
             try? viewContext.save()
         }
@@ -53,7 +53,7 @@ extension DataController {
             return
         }
         
-        try? save()
+        save()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + interval) {
             self.autoSaveViewContext(interval: interval)
