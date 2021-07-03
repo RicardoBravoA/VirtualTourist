@@ -11,17 +11,32 @@ import UIKit
 extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        let count = fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoViewCell", for: indexPath) as! PhotoViewCell
         
-        let photo = data[indexPath.row]
+        guard (fetchedResultsController.fetchedObjects?.isEmpty == false) else {
+            print("Images in CoreData")
+            return cell
+        }
         
-        ApiClient.image(url: photo.url) { data, error in
-            guard let data = data else { return }
-            cell.photoImageView.image = UIImage(data: data)
+        let photo = fetchedResultsController.object(at: indexPath)
+        
+        if photo.imageData == nil {
+            ApiClient.image(url: photo.imageUrl!.absoluteString) { data, error in
+                guard let data = data else { return }
+                photo.imageData = data
+                self.dataController.save()
+                cell.photoImageView.image = UIImage(data: data)
+            }
+        } else {
+            if let imageData = photo.imageData {
+                let image = UIImage(data: imageData)
+                cell.photoImageView.image = image
+            }
         }
         return cell
     }
