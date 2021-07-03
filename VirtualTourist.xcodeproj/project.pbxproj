@@ -25,6 +25,7 @@
 		C68D91B126900C1300FB9741 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B026900C1300FB9741 /* CustomPointAnnotation.swift */; };
 		C68D91B426902CB600FB9741 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B326902CB600FB9741 /* PhotoViewController.swift */; };
 		C68D91B62690361700FB9741 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B52690361700FB9741 /* PhotoViewCell.swift */; };
+		C68D91B82690392300FB9741 /* PhotoViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B72690392300FB9741 /* PhotoViewController+Map.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		C68D91B026900C1300FB9741 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		C68D91B326902CB600FB9741 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		C68D91B52690361700FB9741 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
+		C68D91B72690392300FB9741 /* PhotoViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoViewController+Map.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				C68D9182268FE7BC00FB9741 /* MapViewController.swift */,
 				C68D91B326902CB600FB9741 /* PhotoViewController.swift */,
+				C68D91B72690392300FB9741 /* PhotoViewController+Map.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				C68D91B126900C1300FB9741 /* CustomPointAnnotation.swift in Sources */,
 				C68D91A7269006BA00FB9741 /* DataController.swift in Sources */,
 				C68D91A2268FFB9E00FB9741 /* VirtualTourist.xcdatamodeld in Sources */,
+				C68D91B82690392300FB9741 /* PhotoViewController+Map.swift in Sources */,
 				C68D919B268FF30800FB9741 /* ErrorResponse.swift in Sources */,
 				C68D9181268FE7BC00FB9741 /* SceneDelegate.swift in Sources */,
 				C68D91B426902CB600FB9741 /* PhotoViewController.swift in Sources */,

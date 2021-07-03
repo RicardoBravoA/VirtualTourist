@@ -45,7 +45,7 @@
                     <navigationItem key="navigationItem" title="Virutal Tourist" id="MMy-FI-5H3"/>
                     <connections>
                         <outlet property="mapView" destination="G32-Mr-RDD" id="aEI-xa-dew"/>
-                        <segue destination="hUh-cm-kGl" kind="showDetail" identifier="photoSegue" id="mi1-Er-di9"/>
+                        <segue destination="hUh-cm-kGl" kind="showDetail" identifier="photoSegue" id="IbL-75-JzV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -73,6 +73,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="XUV-P7-1Kz"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="s3G-3Q-lze" id="Kcd-bc-KfG"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2H-63-dLs">
                                 <rect key="frame" x="0.0" y="768" width="414" height="40"/>
