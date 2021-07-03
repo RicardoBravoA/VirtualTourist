@@ -71,7 +71,6 @@ class MapViewController: UIViewController {
             
             self.dataController.save()
             let pointAnnotation = CustomPointAnnotation(pin: pin)
-            print(pointAnnotation)
             
             DispatchQueue.main.async {
                 self.mapView.addAnnotation(pointAnnotation)

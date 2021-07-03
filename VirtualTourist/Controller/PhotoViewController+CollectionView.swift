@@ -22,19 +22,33 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
         ApiClient.image(url: photo.url) { data, error in
             guard let data = data else { return }
             cell.photoImageView.image = UIImage(data: data)
-//            cell.setNeedsLayout()
         }
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let space:CGFloat = 5.0
-        let dimension = (view.frame.size.width - (2 * space)) / 3.0
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        let size = CGSize(width: dimension, height: dimension)
-        flowLayout.itemSize = size
-        return size
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let space:CGFloat = 5.0
+//        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+//        flowLayout.minimumInteritemSpacing = space
+//        flowLayout.minimumLineSpacing = space
+//        let size = CGSize(width: dimension, height: dimension)
+//        flowLayout.itemSize = size
+//        return size
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch mode {
+        case .view:
+            collectionView.deselectItem(at: indexPath, animated: true)
+        case .select:
+            dictionarySelectedIndexPath[indexPath] = true
+        }
+    }
+        
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if mode == .select {
+            dictionarySelectedIndexPath[indexPath] = false
+        }
     }
     
 }
