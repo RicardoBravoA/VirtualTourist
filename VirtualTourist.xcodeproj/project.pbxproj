@@ -28,6 +28,7 @@
 		C68D91B82690392300FB9741 /* PhotoViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B72690392300FB9741 /* PhotoViewController+Map.swift */; };
 		C68D91BA2690460300FB9741 /* PhotoViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B92690460300FB9741 /* PhotoViewController+CollectionView.swift */; };
 		C68D91BC269117E500FB9741 /* ButtonRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91BB269117E500FB9741 /* ButtonRectangle.swift */; };
+		C68D91BE26911E6000FB9741 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91BD26911E6000FB9741 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		C68D91B72690392300FB9741 /* PhotoViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoViewController+Map.swift"; sourceTree = "<group>"; };
 		C68D91B92690460300FB9741 /* PhotoViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		C68D91BB269117E500FB9741 /* ButtonRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRectangle.swift; sourceTree = "<group>"; };
+		C68D91BD26911E6000FB9741 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				C68D91B326902CB600FB9741 /* PhotoViewController.swift */,
 				C68D91B72690392300FB9741 /* PhotoViewController+Map.swift */,
 				C68D91B92690460300FB9741 /* PhotoViewController+CollectionView.swift */,
+				C68D91BD26911E6000FB9741 /* UIViewController+Extensions.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				C68D91AE269008CF00FB9741 /* Photo+Extension.swift in Sources */,
 				C68D917F268FE7BC00FB9741 /* AppDelegate.swift in Sources */,
 				C68D919D268FF3DC00FB9741 /* PhotoResponse.swift in Sources */,
+				C68D91BE26911E6000FB9741 /* UIViewController+Extensions.swift in Sources */,
 				C68D9195268FF15C00FB9741 /* EndPoint.swift in Sources */,
 				C68D91B126900C1300FB9741 /* CustomPointAnnotation.swift in Sources */,
 				C68D91BA2690460300FB9741 /* PhotoViewController+CollectionView.swift in Sources */,

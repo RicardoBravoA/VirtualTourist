@@ -65,9 +65,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="6rQ-8g-WNr">
-                                <rect key="frame" x="197" y="411" width="20" height="20"/>
-                            </activityIndicatorView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="M6P-Rw-M3v">
                                 <rect key="frame" x="0.0" y="56" width="414" height="150"/>
                                 <constraints>
@@ -83,6 +80,9 @@
                                     <constraint firstAttribute="height" constant="40" id="SbO-fR-FDz"/>
                                 </constraints>
                                 <state key="normal" title="New Collection"/>
+                                <connections>
+                                    <action selector="loadPhotos:" destination="s3G-3Q-lze" eventType="touchUpInside" id="8hI-fr-23y"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="li3-Wz-Za2">
                                 <rect key="frame" x="0.0" y="206" width="414" height="554"/>
@@ -146,12 +146,22 @@
                                     <outlet property="delegate" destination="s3G-3Q-lze" id="zS0-KE-9sH"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="6rQ-8g-WNr">
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No images" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD2-e0-3Y1">
+                                <rect key="frame" x="149.5" y="406" width="115" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jDg-da-zeY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="D2H-63-dLs" firstAttribute="trailing" secondItem="jDg-da-zeY" secondAttribute="trailing" id="4CY-2g-Du6"/>
                             <constraint firstItem="M6P-Rw-M3v" firstAttribute="leading" secondItem="jDg-da-zeY" secondAttribute="leading" id="AVk-EH-GBE"/>
+                            <constraint firstItem="MD2-e0-3Y1" firstAttribute="centerX" secondItem="EK1-00-tYv" secondAttribute="centerX" id="JBi-0u-6R1"/>
                             <constraint firstItem="D2H-63-dLs" firstAttribute="leading" secondItem="jDg-da-zeY" secondAttribute="leading" id="K8W-Oe-QDW"/>
                             <constraint firstItem="li3-Wz-Za2" firstAttribute="top" secondItem="jDg-da-zeY" secondAttribute="top" constant="150" id="L8r-85-rQt"/>
                             <constraint firstItem="li3-Wz-Za2" firstAttribute="trailing" secondItem="jDg-da-zeY" secondAttribute="trailing" id="MBT-OJ-cnt"/>
@@ -160,6 +170,7 @@
                             <constraint firstItem="6rQ-8g-WNr" firstAttribute="centerX" secondItem="EK1-00-tYv" secondAttribute="centerX" id="fsr-jv-RZ5"/>
                             <constraint firstItem="li3-Wz-Za2" firstAttribute="leading" secondItem="jDg-da-zeY" secondAttribute="leading" id="oF6-KD-7CR"/>
                             <constraint firstItem="6rQ-8g-WNr" firstAttribute="centerY" secondItem="EK1-00-tYv" secondAttribute="centerY" id="oWl-Dr-zgm"/>
+                            <constraint firstItem="MD2-e0-3Y1" firstAttribute="centerY" secondItem="EK1-00-tYv" secondAttribute="centerY" id="qwL-9Q-c3F"/>
                             <constraint firstItem="M6P-Rw-M3v" firstAttribute="trailing" secondItem="jDg-da-zeY" secondAttribute="trailing" id="w6d-jj-0JA"/>
                             <constraint firstItem="M6P-Rw-M3v" firstAttribute="top" secondItem="jDg-da-zeY" secondAttribute="top" id="yXZ-rj-nA4"/>
                         </constraints>
@@ -172,6 +183,7 @@
                         <outlet property="mapView" destination="M6P-Rw-M3v" id="YIR-EZ-Qsg"/>
                         <outlet property="navigation" destination="gET-8E-qSS" id="aaY-4z-Bqz"/>
                         <outlet property="newCollectionButton" destination="D2H-63-dLs" id="DiH-Ba-72n"/>
+                        <outlet property="noImagesLabel" destination="MD2-e0-3Y1" id="Ad2-RX-awM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3iF-dZ-vdU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
