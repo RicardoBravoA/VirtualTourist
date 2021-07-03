@@ -1,10 +1,10 @@
+
 //
 //  SceneDelegate.swift
 //  VirtualTourist
 //
 //  Created by Ricardo Bravo on 2/07/21.
 //
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -49,4 +49,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-
