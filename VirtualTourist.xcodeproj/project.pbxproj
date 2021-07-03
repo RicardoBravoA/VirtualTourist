@@ -24,6 +24,7 @@
 		C68D91AE269008CF00FB9741 /* Photo+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91AD269008CF00FB9741 /* Photo+Extension.swift */; };
 		C68D91B126900C1300FB9741 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B026900C1300FB9741 /* CustomPointAnnotation.swift */; };
 		C68D91B426902CB600FB9741 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B326902CB600FB9741 /* PhotoViewController.swift */; };
+		C68D91B62690361700FB9741 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B52690361700FB9741 /* PhotoViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		C68D91AD269008CF00FB9741 /* Photo+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Extension.swift"; sourceTree = "<group>"; };
 		C68D91B026900C1300FB9741 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		C68D91B326902CB600FB9741 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		C68D91B52690361700FB9741 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				C68D91B026900C1300FB9741 /* CustomPointAnnotation.swift */,
+				C68D91B52690361700FB9741 /* PhotoViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C68D9183268FE7BC00FB9741 /* MapViewController.swift in Sources */,
+				C68D91B62690361700FB9741 /* PhotoViewCell.swift in Sources */,
 				C68D91A92690082D00FB9741 /* DataController+Extensions.swift in Sources */,
 				C68D91AE269008CF00FB9741 /* Photo+Extension.swift in Sources */,
 				C68D917F268FE7BC00FB9741 /* AppDelegate.swift in Sources */,
