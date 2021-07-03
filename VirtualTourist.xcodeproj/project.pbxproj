@@ -13,6 +13,7 @@
 		C68D9186268FE7BC00FB9741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C68D9184268FE7BC00FB9741 /* Main.storyboard */; };
 		C68D9188268FE7BF00FB9741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C68D9187268FE7BF00FB9741 /* Assets.xcassets */; };
 		C68D918B268FE7BF00FB9741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C68D9189268FE7BF00FB9741 /* LaunchScreen.storyboard */; };
+		C68D9195268FF15C00FB9741 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D9194268FF15C00FB9741 /* EndPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C68D9187268FE7BF00FB9741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C68D918A268FE7BF00FB9741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C68D918C268FE7BF00FB9741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C68D9194268FF15C00FB9741 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		C68D917D268FE7BC00FB9741 /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
+				C68D9192268FF14800FB9741 /* Data */,
 				C68D917E268FE7BC00FB9741 /* AppDelegate.swift */,
 				C68D9180268FE7BC00FB9741 /* SceneDelegate.swift */,
 				C68D9182268FE7BC00FB9741 /* ViewController.swift */,
@@ -65,6 +68,22 @@
 				C68D918C268FE7BF00FB9741 /* Info.plist */,
 			);
 			path = VirtualTourist;
+			sourceTree = "<group>";
+		};
+		C68D9192268FF14800FB9741 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C68D9193268FF14D00FB9741 /* Api */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C68D9193268FF14D00FB9741 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				C68D9194268FF15C00FB9741 /* EndPoint.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +158,7 @@
 			files = (
 				C68D9183268FE7BC00FB9741 /* ViewController.swift in Sources */,
 				C68D917F268FE7BC00FB9741 /* AppDelegate.swift in Sources */,
+				C68D9195268FF15C00FB9741 /* EndPoint.swift in Sources */,
 				C68D9181268FE7BC00FB9741 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
