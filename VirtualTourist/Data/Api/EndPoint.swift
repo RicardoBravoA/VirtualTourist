@@ -12,6 +12,7 @@ enum EndPoint {
     static let urlBase = "https://www.flickr.com/services/rest/"
     
     case photoSearch(Double, Double)
+    case image(String)
     
     var value: String {
         switch self {
@@ -25,6 +26,8 @@ enum EndPoint {
                 "&per_page=20" +
                 "&page=1" +
             "&format=json&nojsoncallback=1&extras=url_m"
+        case .image(let url):
+            return url
         }
     }
     

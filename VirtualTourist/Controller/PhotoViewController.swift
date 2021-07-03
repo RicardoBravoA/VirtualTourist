@@ -17,10 +17,26 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var newCollectionButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
+    var data = [PhotoItemResponse]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        configureFlowLayout()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigation.title = pin.pin.name
+        
         setUpMap()
+        
+        ApiClient.searchPhotos(latitude: pin.pin.latitude, longitude: pin.pin.longitude) { response, error in
+            self.data = response
+            self.collectionView.reloadData()
+        }
     }
     
     @IBAction func deletePhoto(_ sender: UIBarButtonItem) {

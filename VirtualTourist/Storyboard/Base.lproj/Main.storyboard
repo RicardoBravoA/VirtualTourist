@@ -103,20 +103,29 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xOC-CN-Fem">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="128" id="1cZ-LK-MDd"/>
+                                                        <constraint firstAttribute="height" constant="128" id="Dk1-wM-3g8"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xOC-CN-Fem" firstAttribute="leading" secondItem="rQx-jk-LBi" secondAttribute="leading" id="E4V-QT-hIl"/>
-                                                <constraint firstAttribute="bottom" secondItem="xOC-CN-Fem" secondAttribute="bottom" id="ScZ-Pa-TYJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="xOC-CN-Fem" secondAttribute="trailing" id="Uki-OS-1n5"/>
-                                                <constraint firstItem="xOC-CN-Fem" firstAttribute="top" secondItem="rQx-jk-LBi" secondAttribute="top" id="nr6-Aw-8kB"/>
+                                                <constraint firstItem="xOC-CN-Fem" firstAttribute="top" secondItem="rQx-jk-LBi" secondAttribute="top" id="EZc-Hs-hQF"/>
+                                                <constraint firstAttribute="bottom" secondItem="xOC-CN-Fem" secondAttribute="bottom" id="PbY-oj-gmN"/>
+                                                <constraint firstItem="xOC-CN-Fem" firstAttribute="leading" secondItem="rQx-jk-LBi" secondAttribute="leading" id="g1Z-38-1Fp"/>
+                                                <constraint firstAttribute="trailing" secondItem="xOC-CN-Fem" secondAttribute="trailing" id="vKM-Jg-e4j"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="128" height="128"/>
                                         <connections>
                                             <outlet property="photoImageView" destination="xOC-CN-Fem" id="FCa-Ai-xJz"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="s3G-3Q-lze" id="Csw-I5-B9k"/>
+                                    <outlet property="delegate" destination="s3G-3Q-lze" id="zS0-KE-9sH"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jDg-da-zeY"/>
@@ -151,6 +160,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="6rQ-8g-WNr" id="uWv-Gm-P4s"/>
                         <outlet property="collectionView" destination="li3-Wz-Za2" id="Uj9-gk-5WV"/>
+                        <outlet property="flowLayout" destination="4Ed-cv-t4j" id="JJN-tT-b0D"/>
                         <outlet property="mapView" destination="M6P-Rw-M3v" id="YIR-EZ-Qsg"/>
                         <outlet property="navigation" destination="gET-8E-qSS" id="aaY-4z-Bqz"/>
                         <outlet property="newCollectionButton" destination="D2H-63-dLs" id="DiH-Ba-72n"/>

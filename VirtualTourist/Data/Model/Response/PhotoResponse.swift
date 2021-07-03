@@ -8,6 +8,11 @@
 import Foundation
 
 struct PhotoResponse: Codable {
+    let stat: String
+    let photos: PhotoBase
+}
+
+struct PhotoBase: Codable {
     let photo: [PhotoItemResponse]
 }
 
