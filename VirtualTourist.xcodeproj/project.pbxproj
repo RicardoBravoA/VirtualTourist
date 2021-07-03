@@ -23,6 +23,7 @@
 		C68D91AC2690089800FB9741 /* Pin+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91AB2690089800FB9741 /* Pin+Extension.swift */; };
 		C68D91AE269008CF00FB9741 /* Photo+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91AD269008CF00FB9741 /* Photo+Extension.swift */; };
 		C68D91B126900C1300FB9741 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B026900C1300FB9741 /* CustomPointAnnotation.swift */; };
+		C68D91B426902CB600FB9741 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D91B326902CB600FB9741 /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		C68D91AB2690089800FB9741 /* Pin+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+Extension.swift"; sourceTree = "<group>"; };
 		C68D91AD269008CF00FB9741 /* Photo+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Extension.swift"; sourceTree = "<group>"; };
 		C68D91B026900C1300FB9741 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
+		C68D91B326902CB600FB9741 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				C68D9182268FE7BC00FB9741 /* MapViewController.swift */,
+				C68D91B326902CB600FB9741 /* PhotoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				C68D91A2268FFB9E00FB9741 /* VirtualTourist.xcdatamodeld in Sources */,
 				C68D919B268FF30800FB9741 /* ErrorResponse.swift in Sources */,
 				C68D9181268FE7BC00FB9741 /* SceneDelegate.swift in Sources */,
+				C68D91B426902CB600FB9741 /* PhotoViewController.swift in Sources */,
 				C68D9197268FF28100FB9741 /* ApiClient.swift in Sources */,
 				C68D91AC2690089800FB9741 /* Pin+Extension.swift in Sources */,
 			);

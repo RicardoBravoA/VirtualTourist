@@ -13,6 +13,7 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     private var lastLocation = "LastLocation"
+    var pin: CustomPointAnnotation?
     
     var dataController: DataController! {
         let object = UIApplication.shared.delegate
@@ -31,11 +32,7 @@ class MapViewController: UIViewController {
     }
 
     @IBAction func longPressOnMap(_ sender: UILongPressGestureRecognizer) {
-        if sender.state == .began {
-            print("Inicio")
-        }
         if sender.state == .ended {
-            print("Fin")
             let coordinate = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
             savePoint(coordinate: coordinate)
         }
@@ -74,10 +71,12 @@ class MapViewController: UIViewController {
             
             self.dataController.save()
             let pointAnnotation = CustomPointAnnotation(pin: pin)
+            print(pointAnnotation)
             
             DispatchQueue.main.async {
                 self.mapView.addAnnotation(pointAnnotation)
             }
+            self.performSegue(withIdentifier: "photoSegue", sender: pointAnnotation)
         }
     }
     
@@ -91,6 +90,12 @@ class MapViewController: UIViewController {
                 self.mapView.setRegion(MKCoordinateRegion(center: center, span: span), animated: true)
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let photoViewController = segue.destination as? PhotoViewController else { return }
+        let pin: CustomPointAnnotation = sender as! CustomPointAnnotation
+        photoViewController.pin = pin
     }
     
 }
@@ -113,6 +118,8 @@ extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelega
             pinView!.annotation = annotation
         }
         
+        pin = pinAnnotation
+        
         return pinView
     }
     
@@ -128,7 +135,7 @@ extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelega
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            print("Pin rightCalloutAccessoryView")
+            performSegue(withIdentifier: "photoSegue", sender: pin)
         }
     }
     
