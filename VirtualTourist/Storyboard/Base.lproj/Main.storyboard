@@ -108,17 +108,36 @@
                                                         <constraint firstAttribute="height" constant="128" id="Dk1-wM-3g8"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kau-T1-bzS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rgd-cm-oQp" userLabel="Check Image View">
+                                                    <rect key="frame" x="90" y="90.5" width="30" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="CrR-xd-siB"/>
+                                                        <constraint firstAttribute="width" constant="30" id="zed-rH-iHc"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="kau-T1-bzS" secondAttribute="trailing" id="6IA-r2-TIa"/>
                                                 <constraint firstItem="xOC-CN-Fem" firstAttribute="top" secondItem="rQx-jk-LBi" secondAttribute="top" id="EZc-Hs-hQF"/>
+                                                <constraint firstItem="kau-T1-bzS" firstAttribute="leading" secondItem="rQx-jk-LBi" secondAttribute="leading" id="J0F-KZ-E2H"/>
+                                                <constraint firstAttribute="bottom" secondItem="kau-T1-bzS" secondAttribute="bottom" id="KXj-FE-b1B"/>
                                                 <constraint firstAttribute="bottom" secondItem="xOC-CN-Fem" secondAttribute="bottom" id="PbY-oj-gmN"/>
+                                                <constraint firstAttribute="trailing" secondItem="rgd-cm-oQp" secondAttribute="trailing" constant="8" id="eSQ-Yr-Nbv"/>
+                                                <constraint firstItem="kau-T1-bzS" firstAttribute="top" secondItem="rQx-jk-LBi" secondAttribute="top" id="fxi-St-XJ0"/>
                                                 <constraint firstItem="xOC-CN-Fem" firstAttribute="leading" secondItem="rQx-jk-LBi" secondAttribute="leading" id="g1Z-38-1Fp"/>
+                                                <constraint firstAttribute="bottom" secondItem="rgd-cm-oQp" secondAttribute="bottom" constant="8" id="gfQ-FD-UBp"/>
                                                 <constraint firstAttribute="trailing" secondItem="xOC-CN-Fem" secondAttribute="trailing" id="vKM-Jg-e4j"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="128" height="128"/>
                                         <connections>
+                                            <outlet property="highlightIndicator" destination="kau-T1-bzS" id="WDm-O4-eEH"/>
                                             <outlet property="photoImageView" destination="xOC-CN-Fem" id="FCa-Ai-xJz"/>
+                                            <outlet property="selectIndicator" destination="rgd-cm-oQp" id="ysc-W5-gjP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -145,18 +164,7 @@
                             <constraint firstItem="M6P-Rw-M3v" firstAttribute="top" secondItem="jDg-da-zeY" secondAttribute="top" id="yXZ-rj-nA4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gET-8E-qSS">
-                        <barButtonItem key="leftBarButtonItem" title="Done" id="Hhi-pj-x2o">
-                            <connections>
-                                <action selector="back:" destination="s3G-3Q-lze" id="J4J-QF-euX"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="trash" catalog="system" id="DTB-mg-xeK">
-                            <connections>
-                                <action selector="deletePhoto:" destination="s3G-3Q-lze" id="4rz-o7-vju"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="gET-8E-qSS"/>
                     <connections>
                         <outlet property="activityIndicator" destination="6rQ-8g-WNr" id="uWv-Gm-P4s"/>
                         <outlet property="collectionView" destination="li3-Wz-Za2" id="Uj9-gk-5WV"/>
@@ -191,7 +199,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="trash" catalog="system" width="121" height="128"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
