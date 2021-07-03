@@ -92,4 +92,14 @@ extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelega
         return pinView
     }
     
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        let mapRegion = [
+            "latitude" : mapView.region.center.latitude,
+            "longitude" : mapView.region.center.longitude,
+            "latitudeDelta" : mapView.region.span.latitudeDelta,
+            "longitudeDelta" : mapView.region.span.longitudeDelta
+        ]
+        UserDefaults.standard.set(mapRegion, forKey: "LastLocation")
+    }
+    
 }
