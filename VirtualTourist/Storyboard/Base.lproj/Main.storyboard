@@ -44,6 +44,7 @@
                     <navigationItem key="navigationItem" title="Virutal Tourist" id="MMy-FI-5H3"/>
                     <connections>
                         <outlet property="mapView" destination="G32-Mr-RDD" id="aEI-xa-dew"/>
+                        <segue destination="hUh-cm-kGl" kind="showDetail" identifier="photoSegue" id="mi1-Er-di9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -55,8 +56,47 @@
             </objects>
             <point key="canvasLocation" x="1015.9420289855074" y="87.723214285714278"/>
         </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="bkE-27-rMG">
+            <objects>
+                <viewController id="s3G-3Q-lze" customClass="PhotoViewController" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EK1-00-tYv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jDg-da-zeY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gET-8E-qSS">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="Hhi-pj-x2o"/>
+                        <barButtonItem key="rightBarButtonItem" image="trash" catalog="system" id="DTB-mg-xeK"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3iF-dZ-vdU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2908.6956521739135" y="87.723214285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dyR-oZ-KsW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hUh-cm-kGl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="WAS-qD-IBJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SGz-xx-YG5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="s3G-3Q-lze" kind="relationship" relationship="rootViewController" id="nIW-75-LEV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VtN-pm-te5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1998.5507246376812" y="87.723214285714278"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -24,11 +24,6 @@ extension DataController {
     }
     
     func fetchLocations() throws -> [Pin]? {
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
-//        guard let pin = try viewContext.fetch(fetchRequest) as? [Pin] else {
-//            return nil
-//        }
-//        return pin
         let fetchRequest: NSFetchRequest<Pin> = Pin.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "created", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]

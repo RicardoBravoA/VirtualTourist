@@ -13,6 +13,7 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     private var lastLocation = "LastLocation"
+    var pin: CustomPointAnnotation?
     
     var dataController: DataController! {
         let object = UIApplication.shared.delegate
@@ -31,8 +32,10 @@ class MapViewController: UIViewController {
     }
 
     @IBAction func longPressOnMap(_ sender: UILongPressGestureRecognizer) {
-        let coordinate = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
-        savePoint(coordinate: coordinate)
+        if sender.state == .ended {
+            let coordinate = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
+            savePoint(coordinate: coordinate)
+        }
     }
     
     func loadData() {
@@ -68,10 +71,12 @@ class MapViewController: UIViewController {
             
             self.dataController.save()
             let pointAnnotation = CustomPointAnnotation(pin: pin)
+            print(pointAnnotation)
             
             DispatchQueue.main.async {
                 self.mapView.addAnnotation(pointAnnotation)
             }
+            self.performSegue(withIdentifier: "photoSegue", sender: pointAnnotation)
         }
     }
     
@@ -85,6 +90,12 @@ class MapViewController: UIViewController {
                 self.mapView.setRegion(MKCoordinateRegion(center: center, span: span), animated: true)
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let photoViewController = segue.destination as? PhotoViewController else { return }
+        let pin: CustomPointAnnotation = sender as! CustomPointAnnotation
+        photoViewController.pin = pin
     }
     
 }
@@ -102,9 +113,12 @@ extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelega
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
             pinView!.pinTintColor = .red
+            pinView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         } else {
             pinView!.annotation = annotation
         }
+        
+        pin = pinAnnotation
         
         return pinView
     }
@@ -117,6 +131,12 @@ extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelega
             "longitudeDelta" : mapView.region.span.longitudeDelta
         ]
         UserDefaults.standard.set(mapRegion, forKey: lastLocation)
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            performSegue(withIdentifier: "photoSegue", sender: pin)
+        }
     }
     
 }
