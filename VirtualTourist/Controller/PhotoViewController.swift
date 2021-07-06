@@ -101,10 +101,13 @@ class PhotoViewController: UIViewController {
         }
         
         for i in deleteNeededIndexPaths.sorted(by: { $0.item > $1.item }) {
-            data.remove(at: i.item)
+//            data.remove(at: i.item)
+            let photoToDelete = fetchedResultsController.object(at: i)
+            dataController.viewContext.delete(photoToDelete)
+            dataController.save()
         }
         
-        collectionView.deleteItems(at: deleteNeededIndexPaths)
+//        collectionView.deleteItems(at: deleteNeededIndexPaths)
         dictionarySelectedIndexPath.removeAll()
       }
     
