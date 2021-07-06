@@ -29,8 +29,6 @@ class PhotoViewController: UIViewController {
         return appDelegate.dataController
     }
     
-    var data = [PhotoItemResponse]()
-    
     lazy var selectBarButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Select", style: .plain, target: self, action: #selector(didSelectButtonClicked(_:)))
         return barButtonItem
@@ -101,19 +99,16 @@ class PhotoViewController: UIViewController {
         }
         
         for i in deleteNeededIndexPaths.sorted(by: { $0.item > $1.item }) {
-//            data.remove(at: i.item)
             let photoToDelete = fetchedResultsController.object(at: i)
             dataController.viewContext.delete(photoToDelete)
             dataController.save()
         }
         
-//        collectionView.deleteItems(at: deleteNeededIndexPaths)
         dictionarySelectedIndexPath.removeAll()
       }
     
     @IBAction func loadPhotos(_ sender: UIButton) {
         guard let images = fetchedResultsController.fetchedObjects else {
-            print("CoreData XD")
             return
         }
         for image in images {
@@ -128,22 +123,12 @@ class PhotoViewController: UIViewController {
         activityIndicator.startAnimating()
         buttonEnabled(false, button: newCollectionButton)
         
-        if !data.isEmpty {
-            data = []
-            collectionView.reloadData()
-        }
-    
-        print("CoreData images: \(fetchedResultsController.fetchedObjects?.isEmpty)")
-        
         guard (fetchedResultsController.fetchedObjects?.isEmpty == true) else {
             activityIndicator.isHidden = true
             activityIndicator.stopAnimating()
-            print("CoreData images exists")
             self.buttonEnabled(true, button: self.newCollectionButton)
             return
         }
-        
-        print("No images, reload")
         
         ApiClient.searchPhotos(latitude: pin.pin.latitude, longitude: pin.pin.longitude) { response, error in
             if error != nil {
@@ -163,8 +148,6 @@ class PhotoViewController: UIViewController {
                     }
                     
                     self.noImagesLabel.isHidden = true
-                    self.data = response
-                    self.collectionView.reloadData()
                 }
             }
             
