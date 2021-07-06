@@ -18,11 +18,6 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoViewCell", for: indexPath) as! PhotoViewCell
         
-        guard (fetchedResultsController.fetchedObjects?.isEmpty == false) else {
-            print("Images in CoreData")
-            return cell
-        }
-        
         let photo = fetchedResultsController.object(at: indexPath)
         
         if photo.imageData == nil {
