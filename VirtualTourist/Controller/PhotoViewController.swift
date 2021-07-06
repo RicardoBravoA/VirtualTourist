@@ -123,7 +123,11 @@ class PhotoViewController: UIViewController {
         activityIndicator.startAnimating()
         buttonEnabled(false, button: newCollectionButton)
         
-        guard (fetchedResultsController.fetchedObjects?.isEmpty == true) else {
+        guard let results = fetchedResultsController?.fetchedObjects?.isEmpty else {
+            return
+        }
+        
+        guard (results == true) else {
             activityIndicator.isHidden = true
             activityIndicator.stopAnimating()
             self.buttonEnabled(true, button: self.newCollectionButton)
