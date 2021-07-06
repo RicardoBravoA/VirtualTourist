@@ -13,7 +13,6 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     private var lastLocation = "LastLocation"
-    var pin: CustomPointAnnotation?
     
     var dataController: DataController! {
         let object = UIApplication.shared.delegate
@@ -124,8 +123,6 @@ extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelega
             pinView!.annotation = annotation
         }
         
-        pin = pinAnnotation
-        
         return pinView
     }
     
@@ -140,9 +137,22 @@ extension MapViewController: MKMapViewDelegate, NSFetchedResultsControllerDelega
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if control == view.rightCalloutAccessoryView {
-            performSegue(withIdentifier: "photoSegue", sender: pin)
+        mapView.deselectAnnotation(view.annotation, animated: false)
+        
+        guard let annotation = view.annotation else { return }
+        
+        if let annotation = annotation as? MKPointAnnotation {
+            let predicate = NSPredicate(format: "latitude = %@ AND longitude = %@", argumentArray: [annotation.coordinate.latitude, annotation.coordinate.longitude])
+            
+            guard let pin = try? dataController.fetchLocation(predicate) else { return }
+            let customPinAnnotation = CustomPointAnnotation(pin: pin)
+            
+            if control == view.rightCalloutAccessoryView {
+                performSegue(withIdentifier: "photoSegue", sender: customPinAnnotation)
+            }
+            
         }
+        
     }
     
 }

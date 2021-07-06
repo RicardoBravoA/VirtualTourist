@@ -59,4 +59,14 @@ extension DataController {
             self.autoSaveViewContext(interval: interval)
         }
     }
+    
+    func fetchLocation(_ predicate: NSPredicate, sorting: NSSortDescriptor? = nil) throws -> Pin? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
+        fetchRequest.predicate = predicate
+        
+        guard let location = (try viewContext.fetch(fetchRequest) as! [Pin]).first else {
+            return nil
+        }
+        return location
+    }
 }

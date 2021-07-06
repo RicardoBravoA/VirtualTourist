@@ -71,13 +71,12 @@ class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpFetchedResultsController()
         navigationItem.rightBarButtonItem = selectBarButton
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        setUpFetchedResultsController()
         navigation.title = pin.pin.name
         
         setUpMap()
@@ -110,6 +109,15 @@ class PhotoViewController: UIViewController {
       }
     
     @IBAction func loadPhotos(_ sender: UIButton) {
+        guard let images = fetchedResultsController.fetchedObjects else {
+            print("CoreData XD")
+            return
+        }
+        for image in images {
+            dataController.viewContext.delete(image)
+            dataController.save()
+        }
+        
         loadPhotos()
     }
     
@@ -128,6 +136,7 @@ class PhotoViewController: UIViewController {
             activityIndicator.isHidden = true
             activityIndicator.stopAnimating()
             print("CoreData images exists")
+            self.buttonEnabled(true, button: self.newCollectionButton)
             return
         }
         
@@ -163,19 +172,16 @@ class PhotoViewController: UIViewController {
     
     private func setUpFetchedResultsController() {
         let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
-       
-        if let pin = pin {
-            let predicate = NSPredicate(format: "pin == %@", pin.pin)
-            fetchRequest.predicate = predicate
-         
-            print("\(pin.pin.latitude) \(pin.pin.longitude)")
-        }
+        let predicate = NSPredicate(format: "pin == %@", pin.pin)
+        fetchRequest.predicate = predicate
+        
         let sortDescriptor = NSSortDescriptor(key: "created", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                               managedObjectContext: dataController.viewContext,
-                                                              sectionNameKeyPath: nil, cacheName: "photo")
+                                                              sectionNameKeyPath: nil, cacheName: nil)
+        
         fetchedResultsController.delegate = self
 
         do {
